@@ -1,5 +1,5 @@
-def sec02_1():
+def joint():
     for (a, b) in zip("パトカー", "タクシー"):
         print(a + b, end='')
 
-sec02_1()
+joint()

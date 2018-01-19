@@ -1,5 +1,5 @@
-def sec00_1():
+def reverse():
     str = 'stressed'
     print(str[::-1])
 
-sec00_1()
+reverse()
