@@ -25,16 +25,15 @@ def ngram(option, num, seq):
             _str = seq
         
         result = [_str[i:i+2] for i in range(0, len(_str))]
-        print(result)
-        return
+        return result
 
 def main():
     string = "I am an NLPer"
     #string = ['I', 'am', 'an', 'NLPer']
     print("単語bi-gram: ")
-    ngram("word", 2, string)
+    print(ngram("word", 2, string))
     print("文字bi-gram: ")
-    ngram("char", 2, string)
+    print(ngram("char", 2, string))
 
 if __name__ == '__main__':
     main()
