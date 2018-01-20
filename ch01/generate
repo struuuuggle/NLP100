@@ -10,7 +10,7 @@ fi
 # $1に".py"が含まれていても、含まれていなくても正しく動作する
 head=${1##*[0-9_]}			# indexを削除
 head=${head%\.py}			# .pyを削除
-fileName="${1%\.py}.py"	# -> 999_test
+fileName="${1%\.py}.py"		# -> 999_test
 
 # ファイルに書き込むテンプレート
 str=$(cat <<-EOF
@@ -28,4 +28,4 @@ EOF
 )
 
 # ファイルにテンプレートを書き込む
-echo "$str" > "$fileName" && echo "Created new file!: $fileName"
+echo "$str" > "./$fileName" && echo "Created new file!: $fileName"
