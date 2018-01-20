@@ -2,4 +2,5 @@ def joint():
     for (a, b) in zip("パトカー", "タクシー"):
         print(a + b, end='')
 
-joint()
+if __name__ == '__main__':
+    joint()

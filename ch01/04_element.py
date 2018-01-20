@@ -11,4 +11,5 @@ def element():
 
     print(element)
 
-element()
+if __name__ == '__main__':
+    element()
