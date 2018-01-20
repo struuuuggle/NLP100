@@ -3,4 +3,5 @@ def skip():
     print(msg[::2]) # パトカー
     #print(msg[::3]) # パクー
 
-skip()
+if __name__ == '__main__':
+    skip()
