@@ -8,9 +8,9 @@ fi
 
 # 生成するファイル名
 # $1に".py"が含まれていても、含まれていなくても正しく動作する
-head=${1##*[0-9_]}			# indexを削除
-head=${head%\.py}			# .pyを削除
-fileName="${1%\.py}.py"		# -> 999_test
+head=${1##*[0-9_]}
+head=${head%\.py}
+fileName="${1%\.py}.py"
 
 # ファイルに書き込むテンプレート
 str=$(cat <<-EOF
