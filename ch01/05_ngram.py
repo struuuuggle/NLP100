@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 def ngram(option, num, seq):
 
     # 単語n-gramの生成
@@ -26,11 +28,14 @@ def ngram(option, num, seq):
         print(result)
         return
 
-
-if __name__ == '__main__':
+def main():
     string = "I am an NLPer"
     #string = ['I', 'am', 'an', 'NLPer']
     print("単語bi-gram: ")
     ngram("word", 2, string)
     print("文字bi-gram: ")
     ngram("char", 2, string)
+
+if __name__ == '__main__':
+    main()
+

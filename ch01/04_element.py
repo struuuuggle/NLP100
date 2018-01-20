@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 def element():
     element = []
     word = "Hi He Lied Because Boron Could Not Oxidize Fluorine. New Nations Might Also Sign Peace Security Clause. Arthur King Can.".split()
@@ -11,5 +13,8 @@ def element():
 
     print(element)
 
-if __name__ == '__main__':
+def main():
     element()
+
+if __name__ == '__main__':
+    main()

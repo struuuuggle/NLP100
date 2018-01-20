@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 def pi():
     word = []
     char_len = []
@@ -8,5 +10,8 @@ def pi():
 
     print(char_len)
 
-if __name__ == '__main__':
+def main():
     pi()
+
+if __name__ == '__main__':
+    main()

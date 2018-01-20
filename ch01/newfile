@@ -13,11 +13,16 @@ fileName="$head.py"		# -> 999_test
 
 # ファイルに書き込むテンプレート
 str=$(cat <<-EOF
+# -*- coding: utf-8 -*-
+
 def $head():
     
 
+def main():
+    $head()
+
 if __name__ == '__main__':
-   $head()
+    main()
 EOF
 )
 
