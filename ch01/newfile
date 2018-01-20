@@ -1,0 +1,25 @@
+#!/bin/sh
+
+#実行時にコマンドラン引数の数が1でなければ終了
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <NewFileName>" 1>&2
+    exit 1
+fi
+
+# 生成するファイル名
+# $1に".py"が含まれていても、含まれていなくても正しく動作する
+head=${1%\.py}			# -> 999_test
+fileName="$head.py"		# -> 999_test
+
+# ファイルに書き込むテンプレート
+str=$(cat <<-EOF
+def $head():
+    
+
+if __name__ == '__main__':
+   $head()
+EOF
+)
+
+# ファイルにテンプレートを書き込む
+echo "$str" > "$fileName" && echo "Created new file!: $fileName"
