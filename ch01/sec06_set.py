@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from ex05_ngram import ngram
+from sec05_ngram import ngram
 
 # 和集合
 def union(X, Y):
