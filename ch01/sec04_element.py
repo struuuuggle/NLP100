@@ -7,8 +7,10 @@ def element():
 
     for w in word:
         if (word.index(w) + 1) in key:
+            # 単語の先頭の1文字をelementに追加
             element.append(w[:1])
         else:
+            # 単語の先頭の2文字をelementに追加
             element.append(w[:2])
 
     print(element)
