@@ -5,7 +5,7 @@ def replace(inFile, outFile):
 
 def main():
     inFile = open('../src/hightemp.txt', 'r')
-    outFile = open('../src/sec11.txt', 'w')
+    outFile = open('./test/sec11.txt', 'w')
     replace(inFile, outFile)
     # 以下のコマンドで確認
     # cat ../src/hightemp.txt | tr "\t" " "
