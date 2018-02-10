@@ -2,6 +2,9 @@
 import pandas as pd
 
 def charSet(filename):
+    """
+    1列目の文字列の種類（異なる文字列の集合）を求める
+    """
     df = pd.read_table(filename, names=('A', 'B', 'C', 'D'))
     s1 = set([x for x in df['A']])
     return s1

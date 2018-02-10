@@ -8,7 +8,7 @@ def merge(col1_filename,col2_filename):
     f1.close(), f2.close(), f3.close()
 
 def main():
-    col1_filename, col2_filename = '../src/col1.txt', '../src/col2.txt'
+    col1_filename, col2_filename = './test/col1.txt', './test/col2.txt'
     merge(col1_filename, col2_filename)
 
 if __name__ == '__main__':

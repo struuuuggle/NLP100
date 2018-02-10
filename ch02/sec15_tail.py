@@ -1,15 +1,16 @@
 # -*- coding: utf-8 -*-
 import sys
 
-def tail(file, n):
+def tail(filename, n):
+    file = open(filename, 'r')
     buf = file.readlines()[-n:]
     print(''.join(buf), end='')
     return
 
 def main():
     n = int(sys.argv[1])
-    file = open('../src/hightemp.txt', 'r')
-    tail(file, n)
+    filename = '../src/hightemp.txt'
+    tail(filename, n)
 
 if __name__ == '__main__':
     main()
