@@ -14,7 +14,7 @@ def extract_uk(filename):
     src_f.close()
 
 def main():
-    extract_uk('../src/jawiki-country.json')
+    extract_uk('../../lib/jawiki-country.json')
 
 if __name__ == '__main__':
     main()

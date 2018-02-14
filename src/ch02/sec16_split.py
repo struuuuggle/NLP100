@@ -16,7 +16,7 @@ def split(filename, n):
     src_f.close()
 
 def main():
-    filename = '../src/hightemp.txt'
+    filename = '../../lib/hightemp.txt'
     n = int(sys.argv[1])
     split(filename, n)
 

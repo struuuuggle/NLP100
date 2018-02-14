@@ -9,7 +9,7 @@ def tail(filename, n):
 
 def main():
     n = int(sys.argv[1])
-    filename = '../src/hightemp.txt'
+    filename = '../../lib/hightemp.txt'
     tail(filename, n)
 
 if __name__ == '__main__':

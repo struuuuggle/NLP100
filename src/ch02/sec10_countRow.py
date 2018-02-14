@@ -8,7 +8,7 @@ def count_line(filename):
     return sum
 
 def main():
-    filename = '../src/hightemp.txt'
+    filename = '../../lib/hightemp.txt'
     print(count_line(filename))
 
 if __name__ == '__main__':

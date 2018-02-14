@@ -8,7 +8,7 @@ def freq(filename):
     return common
 
 def main():
-    filename = '../src/hightemp.txt'
+    filename = '../../lib/hightemp.txt'
     print(freq(filename))
 
 if __name__ == '__main__':

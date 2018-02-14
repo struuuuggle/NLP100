@@ -10,7 +10,7 @@ def charSet(filename):
     return s1
 
 def main():
-    filename = '../src/hightemp.txt'
+    filename = '../../lib/hightemp.txt'
     print(charSet(filename))
 
 if __name__ == '__main__':

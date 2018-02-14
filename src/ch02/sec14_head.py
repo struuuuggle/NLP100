@@ -20,7 +20,7 @@ def head2(filename, n):
 
 def main():
     n = int(sys.argv[1])
-    filename = '../src/hightemp.txt'
+    filename = '../../lib/hightemp.txt'
     #head1(filename, n)
     head2(filename, n)
 

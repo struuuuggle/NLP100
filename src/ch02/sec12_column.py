@@ -19,7 +19,7 @@ def column(src_filename, col1_filename, col2_filename):
     return
 
 def main():
-    src_filename = '../src/hightemp.txt'
+    src_filename = '../../lib/hightemp.txt'
     col1_filename = './test/col1.txt'
     col2_filename = './test/col2.txt'
     column(src_filename, col1_filename, col2_filename)

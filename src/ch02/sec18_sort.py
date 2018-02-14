@@ -7,7 +7,7 @@ def sort(filename):
     df_s.to_csv('./test/sec18.txt', header=None, index=False, sep='\t')
 
 def main():
-    filename = '../src/hightemp.txt'
+    filename = '../../lib/hightemp.txt'
     sort(filename)
 
 if __name__ == '__main__':
