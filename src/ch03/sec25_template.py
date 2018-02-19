@@ -17,7 +17,7 @@ def template(filename):
     =
     \s
     (.+?)    # values
-    (?=\n\|)
+    (?=\n\||$)
     ''', re.MULTILINE | re.DOTALL | re.VERBOSE)
 
     with open(filename, 'r') as f:
@@ -26,12 +26,11 @@ def template(filename):
     dict = {}
     for tp in tuples:
         dict.setdefault(tp[0], tp[1])
-        print(tp)
     return dict
 
 
 def main():
-    template('./test/uk.txt')
+    print(template('./test/uk.txt'))
 
 if __name__ == '__main__':
     main()
