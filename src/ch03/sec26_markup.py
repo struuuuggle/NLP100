@@ -2,7 +2,7 @@
 import re
 from sec25_template import template
 
-def markup():
+def remove_markup():
     markup_regex = re.compile(r'\'{2,5}')
     dict = template('./test/uk.txt')
     # ここ、もっとスタイリッシュに書けそう
@@ -11,7 +11,7 @@ def markup():
     return dict
 
 def main():
-    print(markup())
+    print(remove_markup())
 
 if __name__ == '__main__':
     main()
