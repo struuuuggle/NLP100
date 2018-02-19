@@ -5,8 +5,7 @@ import json
 def extract_uk(filename):
     src_f =  open(filename, 'r')
     for line in src_f:
-        # Do not use 'json.loads()'
-        json_dict = json.load(line)
+        json_dict = json.loads(line)
         if json_dict['title'] == 'イギリス':
             with open('./test/uk.txt', 'w') as uk_f:
                 uk_f.write(json_dict['text'])
