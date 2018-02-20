@@ -2,7 +2,7 @@
 import re
 from sec27_innerlink import innerlink
 
-def mediawiki():
+def remove_mediawiki():
     link_website_regex = re.compile(r'\[.*?\s(.*?)\]', re.DOTALL)
     template_regex = re.compile(r'\{\{(?:.*?\|)*(.+?)\}\}')
     tag_regex = re.compile(r'\<\/?ref\>|\<br\/\>')
