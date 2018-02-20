@@ -17,7 +17,7 @@ def template(filename):
     =
     \s
     (.+?)    # values
-    (?=\n\||$)
+    (?=\n\|)
     ''', re.MULTILINE | re.DOTALL | re.VERBOSE)
 
     with open(filename, 'r') as f:
