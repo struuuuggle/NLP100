@@ -6,7 +6,7 @@ def mediafiles(filename):
     with open(filename, 'r') as f:
         result = media_regex.findall(f.read())
     for i, x in enumerate(result):
-        result[i] = x.replace(' ', '_')
+        #result[i] = x.replace(' ', '_')
         print(result[i])
     return result
 
