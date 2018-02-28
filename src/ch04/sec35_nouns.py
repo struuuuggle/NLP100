@@ -10,7 +10,7 @@ def nouns():
             if m['pos'] == '名詞':
                 nouns += m['surface']
             else:
-                if len(tmp) > 1:
+                if len(nouns) > 1:
                     noun_chains.add(nouns)
                 nouns = ''
 
