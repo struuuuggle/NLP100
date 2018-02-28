@@ -19,7 +19,7 @@ def zipf():
            title="[NLP100-39] Zipfの法則")
     gp('set logscale x')
     gp('set logscale y')
-    gp.plot('"' + filename + '" with points pt 5 ps 1')
+    gp.plot('"' + filename + '" with points ps 1')
 
 
 
