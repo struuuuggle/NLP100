@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 import MeCab
 
-neko_txt = '../../lib/neko.txt'
-neko_txt_mecab = './test/neko.txt.mecab'
-
 def parse_txt(txt, txt_mecab):
     with open(txt, 'r') as in_f, open(txt_mecab, 'w') as out_f:
         mecab = MeCab.Tagger()
@@ -36,8 +33,8 @@ def load_mecab(txt_mecab):
         return docs
 
 def main():
-    parse_txt(neko_txt, neko_txt_mecab)
-    print(load_mecab(neko_txt_mecab))
+    parse_txt('../../lib/neko.txt', './test/neko.txt.mecab')
+    print(load_mecab('./test/neko.txt.mecab'))
 
 if __name__ == '__main__':
     main()
