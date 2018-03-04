@@ -1,8 +1,14 @@
 #!/bin/sh
 
-#実行時にコマンドラン引数の数が1でなければ終了
+# 実行時にコマンドラン引数の数が1でなければ終了
 if [ $# -ne 1 ]; then
     echo "Usage: $0 <NewFileName>" 1>&2
+    exit 1
+fi
+
+# 既にファイルが存在する時のエラー処理
+if [ -e $1 ]; then
+    echo "$1 already exists."
     exit 1
 fi
 
@@ -17,7 +23,7 @@ str=$(cat <<-EOF
 # -*- coding: utf-8 -*-
 
 def $head():
-    
+
 
 def main():
     $head()
