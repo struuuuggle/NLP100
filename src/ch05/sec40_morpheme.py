@@ -10,6 +10,7 @@ class Morph:
         self.base = _base
         self.pos = _pos
         self.pos1 = _pos1
+
     def __str__(self):
         return '{}\t{}\t{}\t{}'.format(self.surface, self.base, self.pos, self.pos1)
 
@@ -20,7 +21,10 @@ def parse_txt(txt_filename, cabocha_filename):
     """
     with open(txt_filename, 'r') as source_file, open(cabocha_filename, 'w') as output_file:
         cabocha = CaboCha.Parser('-f1')
-        output_file.write(cabocha.parseToString(source_file.read()))
+        for line in source_file:
+            if line == '':
+                continue
+            output_file.write(cabocha.parseToString(line))
 
 def load_morpheme(cabocha_filename):
     """
@@ -30,10 +34,9 @@ def load_morpheme(cabocha_filename):
         docs = []
         sentence = []
         for line in f:
-            # 空白は読み飛ばす
-            if line[0] == '\u3000':
+            # 空白とEOSは読み飛ばす
+            if line[0] == '\u3000' or line == 'EOS':
                 continue
-
             try:
                 cols = line.split('\t')
                 cols[1:] = cols[1].split(',')
