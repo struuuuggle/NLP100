@@ -14,22 +14,21 @@ class Chunk:
         self.dst = -1
         self.srcs = []
         self.surface = ''
+
     def __str__(self):
-        for m in self.morphs:
-            self.surface += m.surface
         return '{} \tfrom:{} \tto:{}'.format(self.surface, self.srcs, self.dst)
 
 
 def load_chunk():
     with open('./test/neko.txt.cabocha', 'r') as f:
-        docs = []
-        sentence = {}
+        sentences = []
+        chunks = {}
         idx = -1
         for line in f:
             if line == 'EOS\n':
-                l = sorted(sentence.items(), key=lambda x: x[0])
-                docs.append([tp[1] for tp in l])
-                sentence.clear()
+                l = sorted(chunks.items(), key=lambda x: x[0])
+                sentences.append([tp[1] for tp in l])
+                chunks.clear()
 
             # 文節の区切り情報を読み込む
             elif line[0] == '*':
@@ -37,14 +36,14 @@ def load_chunk():
                 idx = int(cols[1])
                 dst = int(cols[2].rstrip('D'))
 
-                if idx not in sentence:
-                    sentence[idx] = Chunk()
-                sentence[idx].dst = dst
+                if idx not in chunks:
+                    chunks[idx] = Chunk()
+                chunks[idx].dst = dst
 
                 if dst != -1:
-                    if dst not in sentence:
-                        sentence[dst] = Chunk()
-                    sentence[dst].srcs.append(idx)
+                    if dst not in chunks:
+                        chunks[dst] = Chunk()
+                    chunks[dst].srcs.append(idx)
 
             # 形態素解析結果を読み込む
             else:
@@ -56,23 +55,24 @@ def load_chunk():
                           cols[1],    # 品詞
                           cols[2],    # 品詞細分類1
                 )
-                sentence[idx].morphs.append(m)
+                chunks[idx].morphs.append(m)
 
     # chunk.surfaceを生成
-    for sentence in docs:
-        for chunk in sentence:
+    for chunks in sentences:
+        for chunk in chunks:
             token = ''
             for m in chunk.morphs:
                 if m.surface != '、' and m.surface != '。':
                     chunk.surface += m.surface
 
-    return docs
+    return sentences
 
 
 def main():
-    sentence = load_chunk()
-    for i, chunk in enumerate(sentence[7]):
-        print('chunk[{}]: {}'.format(i, chunk))
+    sentences = load_chunk()
+    sentence = sentences[7]
+    for i, chunk in enumerate(sentence):
+        print('{}: {}'.format(i, chunk))
 
 
 if __name__ == '__main__':
