@@ -58,6 +58,14 @@ def load_chunk():
                 )
                 sentence[idx].morphs.append(m)
 
+    # chunk.surfaceを生成
+    for sentence in docs:
+        for chunk in sentence:
+            token = ''
+            for m in chunk.morphs:
+                if m.surface != '、' and m.surface != '。':
+                    chunk.surface += m.surface
+
     return docs
 
 
