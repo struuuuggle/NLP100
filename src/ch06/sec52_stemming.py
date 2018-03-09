@@ -7,6 +7,7 @@ def stemming():
     for w in words():
         print(w, stemmer.stem(w), sep='\t')
 
+
 def main():
     stemming()
 
