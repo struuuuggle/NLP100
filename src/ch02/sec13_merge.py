@@ -1,15 +1,22 @@
 # -*- coding: utf-8 -*-
+import os
+current_dir = os.path.dirname(os.path.abspath(__file__))
+col1 = os.path.join(current_dir, "./test/col1.txt")
+col2 = os.path.join(current_dir, "./test/col2.txt")
+output = os.path.join(current_dir, "./test/merged.txt")
 
-def merge(col1_filename,col2_filename):
-    f1, f2 = open(col1_filename, 'r'), open(col2_filename, 'r')
-    f3 = open('./test/sec13.txt', 'a')
-    for w1, w2 in zip(f1.read().split('\n'), f2.read().split('\n')):
-        f3.write(w1  + '\t' + w2 + '\n')
-    f1.close(), f2.close(), f3.close()
+def merge(col1, col2):
+    lst = []
+    with open(col1, 'r') as col1f, open(col2, 'r') as col2f:
+        for line1, line2 in zip(col1f, col2f):
+            lst.append(line1.rstrip('\n') + '\t' + line2.rstrip('\n'))
+
+    with open(output, 'w') as f:
+        for element in lst:
+            f.write(element + '\n')
 
 def main():
-    col1_filename, col2_filename = './test/col1.txt', './test/col2.txt'
-    merge(col1_filename, col2_filename)
+    merge(col1, col2)
 
 if __name__ == '__main__':
     main()

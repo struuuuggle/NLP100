@@ -1,28 +1,19 @@
 # -*- coding: utf-8 -*-
 import sys
+import os
+current_dir = os.path.dirname(os.path.abspath(__file__))
+data = os.path.join(current_dir, "../../lib/hightemp.txt")
 
-def head1(filename, n):
-    file = open(filename, 'r')
-    ln = 0
-    for l in file:
-        print(l, end='')
-        ln += 1
-        if ln == n:
-            break
-    return
-
-def head2(filename, n):
-    file = open(filename, 'r')
-    #.readlines()はファイル内の各行を要素とするlリストを返す
-    buf = file.readlines()[:n]
-    print(''.join(buf), end='')
-    return
+def head(filename, n):
+    with open(filename, 'r') as f:
+        #.readlines()はファイル内の各行を要素とするlリストを返す
+        lst = f.readlines()[:n]
+        for e in lst:
+            print(e.rstrip('\n'))
 
 def main():
     n = int(sys.argv[1])
-    filename = '../../lib/hightemp.txt'
-    #head1(filename, n)
-    head2(filename, n)
+    head(data, n)
 
 if __name__ == '__main__':
     main()

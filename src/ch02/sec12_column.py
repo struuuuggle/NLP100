@@ -1,28 +1,27 @@
 # -*- coding: utf-8 -*-
+import os
+import numpy as np
+current_dir = os.path.dirname(os.path.abspath(__file__))
+data = os.path.join(current_dir, "../../lib/hightemp.txt")
+col1 = os.path.join(current_dir, "./test/col1.txt")
+col2 = os.path.join(current_dir, "./test/col2.txt")
 
-def column(src_filename, col1_filename, col2_filename):
+# divideとかに改名したい
+def column(src):
     """
     1列目をcol1.txtに，2列目をcol2.txtに保存
     """
-    src_file = open(src_filename, 'r')
-    col1_file = open(col1_filename, 'w')
-    col2_file = open(col2_filename, 'w')
-
-    col1_list, col2_list = [], []
-    for line in src_file:
-        cols = line.split('\t')
-        col1_list.append(cols[0] + '\n')
-        col2_list.append(cols[1] + '\n')
-
-    col1_file.write(''.join(col1_list)), col2_file.write(''.join(col2_list))
-    col1_file.close(), col2_file.close()
-    return
+    data = np.genfromtxt(src,
+                         dtype=[('col1', 'U16'), ('col2', 'U16'), ('col3', 'f'), ('col4', 'U16')],
+                         delimiter='\t')
+    with open(col1, 'w') as col1_file, open(col2, 'w') as col2_file:
+        l1, l2 = [], []
+        for tp in data:
+            l1.append(tp[0] + '\n'), l2.append(tp[1] + '\n')
+        col1_file.write(''.join(l1)), col2_file.write(''.join(l2))
 
 def main():
-    src_filename = '../../lib/hightemp.txt'
-    col1_filename = './test/col1.txt'
-    col2_filename = './test/col2.txt'
-    column(src_filename, col1_filename, col2_filename)
+    column(data)
 
 if __name__ == '__main__':
     main()

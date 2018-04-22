@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
+import os
+current_dir = os.path.dirname(os.path.abspath(__file__))
+data = os.path.join(current_dir, "../../lib/hightemp.txt")
+output = os.path.join(current_dir, "./test/tab2space.txt")
 
-def replace(filename1, filename2):
-    inFile = open(filename1, 'r')
-    outFile = open(filename2, 'w')
-    outFile.write(inFile.read().replace('\t', ' '))
+def tab2space(data):
+    with open(data, 'r') as tabf, open(output, 'w') as spacef:
+        spacef.write(tabf.read().replace('\t', ' '))
 
 def main():
-    filename1 = '../../lib/hightemp.txt'
-    filename2 = './test/sec11.txt'
-    replace(filename1, filename2)
+    tab2space(data)
     # 以下のコマンドで確認
     # cat ../src/hightemp.txt | tr "\t" " "
 

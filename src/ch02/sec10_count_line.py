@@ -1,18 +1,17 @@
 # -*- coding: utf-8 -*-
-import sys
 import os
 current_dir = os.path.dirname(os.path.abspath(__file__))
 data = os.path.join(current_dir, "../../lib/hightemp.txt")
 
-def tail(filename, n):
-    with open(filename, 'r') as f:
-        lst = f.readlines()[-n:]
-        for e in lst:
-            print(e.rstrip('\n'))
+def count_line(filename):
+    f = open(filename, 'r')
+    sum = 0
+    for x in f:
+        sum += 1
+    return sum
 
 def main():
-    n = int(sys.argv[1])
-    tail(data, n)
+    print(count_line(data))
 
 if __name__ == '__main__':
     main()
