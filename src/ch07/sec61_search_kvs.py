@@ -14,7 +14,10 @@ def main():
     # コマンドライン引数でアーティスト名を受け取る
     # 空白も含めて読み込みたい場合は，single quoteでくくるか，'\ 'を使用する
     artist_name = sys.argv[1]
-    search_kvs(artist_name)
+    try:
+        search_kvs(artist_name)
+    except Exception:
+        print("Redis server not found!\nBefore you run this script, the command below.\n\n$ redis-server\n")
 
 if __name__ == '__main__':
     main()

@@ -15,7 +15,13 @@ def repetation(country):
 
 
 def main():
-    print(repetation('Japan'))
+    try:
+        print(repetation('Japan'))
+    except Exception:
+        print("Redis server not found!\nBefore you run this script, the command below.\n")
+        print("$ redis-server")
+        print("$ python sec60_build.py")
+        print("$ python sec61_search_kvs.py\n")
 
 if __name__ == '__main__':
     main()
