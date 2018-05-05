@@ -2,6 +2,7 @@
 import os
 import json
 import gzip
+import pymongo
 from pymongo import MongoClient
 current_dir = os.path.dirname(os.path.abspath(__file__))
 data = os.path.join(current_dir, "../../lib/artist.json.gz")
@@ -29,10 +30,10 @@ def build(filename):
         print("Done.")
 
         print("=== Indexing ===")
-        collection.create_index('name')
-        collection.create_index('aliases.name')
-        collection.create_index('tags.value')
-        collection.create_index('rating.value')
+        collection.create_index([('name', pymongo.ASCENDING)])
+        collection.create_index([('aliases.name', pymongo.ASCENDING)])
+        collection.create_index([('tags.value', pymongo.ASCENDING)])
+        collection.create_index([('rating.value', pymongo.ASCENDING)])
         print("Done.")
 
 

@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import json
 import pprint
 from pymongo import MongoClient
 client = MongoClient()

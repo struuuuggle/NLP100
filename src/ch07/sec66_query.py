@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import json
 from pymongo import MongoClient
 client = MongoClient()
 db = client.artist_database

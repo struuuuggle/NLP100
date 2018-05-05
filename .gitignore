@@ -6,3 +6,4 @@ lib/hightemp.txt
 lib/jawiki-country.json.gz
 lib/neko.txt
 lib/nlp.txt
+*.rdb
