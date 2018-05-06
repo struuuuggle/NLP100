@@ -22,14 +22,10 @@ fileName="${1%\.py}.py"
 str=$(cat <<-EOF
 # -*- coding: utf-8 -*-
 
-def $head():
 
-
-def main():
-    $head()
 
 if __name__ == '__main__':
-    main()
+
 EOF
 )
 
