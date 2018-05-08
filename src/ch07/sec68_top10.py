@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-import pymongo
-client = pymongo.MongoClient()
+from pymongo import MongoClient
+client = MongoClient()
 db = client.artist_database
 collection = db.artist_collection
 
