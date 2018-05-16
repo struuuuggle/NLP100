@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <h1>アーティスト情報を検索</h1>
+    <div class="form">
+        <div class="row">
+            <div class="col-md-6">
+
+                <!-- アーティスト名から検索するフォーム -->
+                <form method="post">
+                    <input name="name" class="form-control" name="name" placeholder="アーティスト名">
+                    <input type="submit" value="検索">
+                </form>
+
+            </div>
+    </div>
+</div>
+<div class="container">
+    {% for doc in docs %}
+         <div class="list-group">
+            <div class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{ doc.name }}</h5>
+                    <small>{{ doc.gid }}</small>
+                </div>
+
+                <p class="mb-1">{{ doc.area }}</p>
+                <p class="mb-1">{{ doc.begin }}</p>
+                <p class="mb-1">
+                    {% for tag in doc.tags %}
+                        {{ tag.value }}
+                    {% endfor %}
+                </p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
