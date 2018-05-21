@@ -7,16 +7,14 @@ def find_pos(posname, chunk):
             return True
     return False
 
+
 def print_ntov():
     sentences = load_chunk()
     for i, chunks in enumerate(sentences):
         for chunk in chunks:
-            if find_pos('名詞', chunk) and find_pos('動詞', chunks[chunk.dst]):
-                if chunk.dst != -1:
-                    print('{}\t{}'.format(chunk.surface, chunks[chunk.dst].surface))
+            if find_pos('名詞', chunk) and find_pos('動詞', chunks[chunk.dst]) and chunk.dst != -1:
+                print('{}\t{}'.format(chunk.surface, chunks[chunk.dst].surface))
 
-def main():
-    print_ntov()
 
 if __name__ == '__main__':
-    main()
+    print_ntov()

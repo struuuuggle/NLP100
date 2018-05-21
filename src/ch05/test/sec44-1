@@ -1,0 +1,12 @@
+digraph {
+	node [share=chircle]
+	0 [label="30年も"]
+	1 [label="前に"]
+	2 [label="言語と"]
+	3 [label="画像を"]
+	4 [label="研究していた．"]
+	0 -> 4
+	1 -> 4
+	2 -> 3
+	3 -> 4
+}

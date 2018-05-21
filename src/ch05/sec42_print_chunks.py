@@ -7,9 +7,7 @@ def print_chunks():
         for chunk in chunks:
             if chunk.dst != -1:
                 dst_surface = chunks[chunk.dst].surface
-            else:
-                dst_surface = 'EOS'
-            print('{}\t{}'.format(chunk.surface, dst_surface))
+                print('{}\t{}'.format(chunk.surface, dst_surface))
 
 def main():
     print_chunks()
