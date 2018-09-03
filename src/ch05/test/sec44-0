@@ -1,0 +1,16 @@
+digraph {
+	node [share=chircle]
+	0 [label="太郎は"]
+	1 [label="この"]
+	2 [label="本を"]
+	3 [label="次朗を"]
+	4 [label="見た"]
+	5 [label="女性に"]
+	6 [label="渡した．"]
+	0 -> 6
+	1 -> 2
+	2 -> 4
+	3 -> 4
+	4 -> 5
+	5 -> 6
+}

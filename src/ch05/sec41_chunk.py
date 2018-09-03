@@ -11,7 +11,7 @@ class Chunk:
     """
     def __init__(self):
         self.morphs = []
-        self.dst = -1
+        self.dst = -100
         self.srcs = []
         self.surface = ''
 
@@ -38,6 +38,7 @@ def load_chunk():
 
                 if idx not in chunks:
                     chunks[idx] = Chunk()
+
                 chunks[idx].dst = dst
 
                 if dst != -1:
@@ -68,12 +69,9 @@ def load_chunk():
     return sentences
 
 
-def main():
+
+if __name__ == '__main__':
     sentences = load_chunk()
     sentence = sentences[7]
     for i, chunk in enumerate(sentence):
         print('{}: {}'.format(i, chunk))
-
-
-if __name__ == '__main__':
-    main()
