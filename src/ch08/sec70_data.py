@@ -1,9 +1,16 @@
 # -*- coding: utf-8 -*-
-import os
+
+"""
+Usage: python sec70_data.py <PATH_TO_POS_FILE> <PATH_TO_NEG_FILE>
+"""
+import sys
 from random import shuffle
 
+POS_PATH = sys.argv[1]
+NEG_PATH = sys.argv[2]
+ANS_PATH = sys.argv[3]
 
-def data_configuration(pos, neg, ans):
+def data_configuration(pos = POS_PATH, neg = NEG_PATH, ans = ANS_PATH):
     s_content = []
 
     with open(pos, 'r') as p:
@@ -19,7 +26,7 @@ def data_configuration(pos, neg, ans):
         s.writelines(s_content)
 
 
-def count_valid_data():
+def count_valid_data(ans = ANS_PATH):
     p_counter, n_counter = 0, 0
     with open(ans, 'r') as f:
         for line in f:
@@ -32,10 +39,5 @@ def count_valid_data():
 
 
 if __name__ == '__main__':
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    pos = os.path.normpath(os.path.join(current_dir, "../../lib/rt-polaritydata/rt-polarity.pos"))
-    neg = os.path.normpath(os.path.join(current_dir, "../../lib/rt-polaritydata/rt-polarity.neg"))
-    ans = os.path.normpath(os.path.join(current_dir, "./test/sentiment.txt"))
-
-    data_configuration(pos, neg, ans)
+    data_configuration()
     count_valid_data()
