@@ -20,5 +20,5 @@ if __name__ == '__main__':
     print(test())
 
     # save stopwords
-    with open('stopwords.bin', 'wb') as f:
+    with open('./stopwords.bin', 'wb') as f:
         pickle.dump(stopwords, f)
