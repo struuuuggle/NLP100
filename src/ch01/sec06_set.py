@@ -1,47 +1,47 @@
 # -*- coding: utf-8 -*-
-from sec05_ngram import ngram
+from sec05_ngram import word_ngram, char_ngram
 
 # 和集合
 def union(X, Y):
     return X | Y
 
+
 # 積集合
 def intersection(X, Y):
     return X & Y
+
 
 # 差集合 : Xの要素のうちYには含まれていない要素からなる集合
 def difference(X, Y):
     return X - Y
 
+
 # 対称差 : Aにのみ、Bにのみ含まれる要素からなる集合
 def symmetricDifference(X, Y):
     return X ^ Y
 
-def main():
-    str1 = 'paraparaparadise'
-    str2 = 'paragraph'
+
+if __name__ == '__main__':
+    s1 = 'paraparaparadise'
+    s2 = 'paragraph'
     target = 'se'
-    
-    X = set(ngram('char', 2, str1))
-    Y = set(ngram('char', 2, str2))
 
-    print('X =', X, sep='')
-    print('Y =', Y, sep='')
+    X = set(char_ngram(2, s1))
+    Y = set(char_ngram(2, s2))
 
+    print(f'X = {X}')
+    print(f'Y = {Y}')
 
     print('The union of X and Y:\n', union(X, Y), sep='')
     print('The intersection of X and Y:\n', intersection(X, Y), sep='')
-    print('The difference of X and Y:\n', difference(X, Y) ,sep='')
+    print('The difference of X and Y:\n', difference(X, Y), sep='')
 
     if target in X:
-        print('\'', target, '\' is in X.', sep='')
+        print(f'\'{target}\' is in X.')
     else:
-        print('\'', target, '\' is not in X.', sep='')
+        print(f'\'{target}\' is not in X.')
 
     if target in Y:
-        print('\'', target, '\' is in Y.', sep='')
+        print(f'\'{target}\' is in Y.')
     else:
-        print('\'', target, '\' is not in Y.', sep='')
-
-if __name__ == '__main__':
-    main()
+        print(f'\'{target}\' is not in Y.')

@@ -1,40 +1,29 @@
 # -*- coding: utf-8 -*-
 
-def ngram(option, num, seq):
+def word_ngram(num , seq):
+    # シーケンスの種類で場合分け
+    if seq.__class__ == 'str':
+        words = seq
+    else:
+        words = seq.split()
 
-    # 単語n-gramの生成
-    if option == 'word':
+    return [words[i] + words[i+1] for i in range(0, len(words) - 1)]
 
-        # シーケンスの種類で場合分け
-        if seq.__class__ == 'str':
-            _words = seq
-        else:
-            _words = seq.split()
-        
-        result = [_words[i] + _words[i+1] for i in range(0, len(_words) - 1)]
-        print(result)
-        return
 
-    # 文字n-gramの生成
-    elif option == 'char':
+def char_ngram(num, seq):
+    # シーケンスの種類で場合分け
+    if seq.__class__ == 'list':
+        chars = ''.join(seq)
+    else:
+        chars = seq
 
-        # シーケンスの種類で場合分け
-        if seq.__class__ == 'list':
-            _str = ''.join(seq)
-        else:
-            _str = seq
-        
-        result = [_str[i:i+2] for i in range(0, len(_str))]
-        return result
+    return [chars[i:i+2] for i in range(0, len(chars))]
 
-def main():
-    string = "I am an NLPer"
-    #string = ['I', 'am', 'an', 'NLPer']
-    print("単語bi-gram: ")
-    print(ngram("word", 2, string))
-    print("文字bi-gram: ")
-    print(ngram("char", 2, string))
 
 if __name__ == '__main__':
-    main()
-
+    s = "I am an NLPer"
+    #string = ['I', 'am', 'an', 'NLPer']
+    print("単語bi-gram: ")
+    print(word_ngram(2, s))
+    print("文字bi-gram: ")
+    print(char_ngram(2, s))

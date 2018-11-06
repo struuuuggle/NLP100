@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+# Usage: python sec08_cipher.py <SENTENCE>
+
 import sys
 
 def cipher(_str):
@@ -22,12 +24,9 @@ def decipher(code):
     return decode
 
 
-def main():
+if __name__ == '__main__':
     plaintext = sys.argv[1]
     code = cipher(plaintext)
     decode = decipher(code)
     print('code :', code)
     print('deode:', decode)
-
-if __name__ == '__main__':
-    main()

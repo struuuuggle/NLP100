@@ -1,17 +1,13 @@
 # -*- coding: utf-8 -*-
 
-def pi():
-    word = []
-    char_len = []
+def pi_list():
+    l = []
     word = "Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics.".split()
-    
+
     for w in word:
-        char_len.append(len(w))
+        l.append(len(w.rstrip(',')))
 
-    print(char_len)
-
-def main():
-    pi()
+    return l
 
 if __name__ == '__main__':
-    main()
+    print(pi_list())
