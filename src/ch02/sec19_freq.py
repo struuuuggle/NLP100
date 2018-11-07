@@ -2,16 +2,16 @@
 import os
 import pandas as pd
 from collections import Counter
-current_dir = os.path.dirname(os.path.abspath(__file__))
-data = os.path.join(current_dir, "../../lib/hightemp.txt")
 
-def freq(filename):
-    df = pd.read_table(filename, names=('col1', 'col2', 'col3', 'col4'))
+DIR = os.path.dirname(os.path.abspath(__file__))
+TXT_PATH = os.path.join(DIR, "../../dat/hightemp.txt")
+
+def freq(path=TXT_PATH):
+    df = pd.read_table(path, names=('col1', 'col2', 'col3', 'col4'))
     sorted_data = Counter([x for x in df['col1']]).most_common()
     return sorted_data
 
-def main():
-    print(freq(data))
 
 if __name__ == '__main__':
-    main()
+    for item in freq():
+        print(f'{item[0]}: {item[1]}回')

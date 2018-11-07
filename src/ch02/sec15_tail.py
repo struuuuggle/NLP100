@@ -1,18 +1,21 @@
 # -*- coding: utf-8 -*-
 import sys
 import os
-current_dir = os.path.dirname(os.path.abspath(__file__))
-data = os.path.join(current_dir, "../../lib/hightemp.txt")
 
-def tail(filename, n):
-    with open(filename, 'r') as f:
-        lst = f.readlines()[-n:]
-        for e in lst:
+"""
+tail -nN hightemp.txt
+"""
+
+DIR = os.path.dirname(os.path.abspath(__file__))
+TXT_PATH = os.path.join(DIR, "../../dat/hightemp.txt")
+
+def tail(path, n):
+    with open(path, 'r') as f:
+        l = f.readlines()[-n:]
+        for e in l:
             print(e.rstrip('\n'))
 
-def main():
-    n = int(sys.argv[1])
-    tail(data, n)
 
 if __name__ == '__main__':
-    main()
+    n = int(sys.argv[1])
+    tail(TXT_PATH, n)

@@ -1,19 +1,22 @@
 # -*- coding: utf-8 -*-
 import sys
 import os
+
+"""
+head -nN hightemp.txt
+"""
+
 current_dir = os.path.dirname(os.path.abspath(__file__))
-data = os.path.join(current_dir, "../../lib/hightemp.txt")
+data = os.path.join(current_dir, "../../dat/hightemp.txt")
 
 def head(filename, n):
     with open(filename, 'r') as f:
-        #.readlines()はファイル内の各行を要素とするlリストを返す
-        lst = f.readlines()[:n]
-        for e in lst:
+        #.readlines()はファイル内の各行を要素とするリストを返す
+        l = f.readlines()[:n]
+        for e in l:
             print(e.rstrip('\n'))
 
-def main():
-    n = int(sys.argv[1])
-    head(data, n)
 
 if __name__ == '__main__':
-    main()
+    n = int(sys.argv[1])
+    head(data, n)

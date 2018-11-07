@@ -1,27 +1,37 @@
 # -*- coding: utf-8 -*-
 import os
-import numpy as np
-current_dir = os.path.dirname(os.path.abspath(__file__))
-data = os.path.join(current_dir, "../../lib/hightemp.txt")
-col1 = os.path.join(current_dir, "./test/col1.txt")
-col2 = os.path.join(current_dir, "./test/col2.txt")
 
-# divideとかに改名したい
-def column(src):
-    """
-    1列目をcol1.txtに，2列目をcol2.txtに保存
-    """
-    data = np.genfromtxt(src,
-                         dtype=[('col1', 'U16'), ('col2', 'U16'), ('col3', 'f'), ('col4', 'U16')],
-                         delimiter='\t')
-    with open(col1, 'w') as col1_file, open(col2, 'w') as col2_file:
-        l1, l2 = [], []
-        for tp in data:
-            l1.append(tp[0] + '\n'), l2.append(tp[1] + '\n')
-        col1_file.write(''.join(l1)), col2_file.write(''.join(l2))
+"""
+cut -f 1 hightemp.txt #hightemp.txtの1列目だけを抜き出す
+cut -f 2 hightemp.txt #hightemp.txtの2列目だけを抜き出す
+"""
 
-def main():
-    column(data)
+DIR = os.path.dirname(os.path.abspath(__file__))
+IN_PATH = os.path.join(DIR, "../../dat/hightemp.txt")
+COL1_PATH = os.path.join(DIR, "./test/col1.txt")
+COL2_PATH = os.path.join(DIR, "./test/col2.txt")
+
+# import numpy as np
+# def divide(path=IN_PATH):
+#     """
+#     1列目をcol1.txtに，2列目をcol2.txtに保存
+#     """
+#     data = np.genfromtxt(path,
+#                          dtype=[('col1', 'U16'), ('col2', 'U16'), ('col3', 'f'), ('col4', 'U16')],
+#                          delimiter='\t')
+#     with open(COL1_PATH, 'w') as f1, open(COL2_PATH, 'w') as f2:
+#         l1, l2 = [], []
+#         for tp in data:
+#             l1.append(tp[0] + '\n'), l2.append(tp[1] + '\n')
+#         f1.write(''.join(l1)), f2.write(''.join(l2))
+
+def divide2(path=IN_PATH):
+    col1, col2 = [], []
+    for line in open(IN_PATH):
+        col1.append(line.split('\t')[0])
+        col2.append(line.split('\t')[1])
+
 
 if __name__ == '__main__':
-    main()
+    # divide()
+    divide2()
