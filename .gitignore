@@ -1,11 +1,14 @@
-__pycache__/
+# private
+.DS_Store
 
-lib/artist.json.gz
-lib/enwiki-20150112-400-r10-105752.txt.bz2
-lib/hightemp.txt
-lib/jawiki-country.json.gz
-lib/neko.txt
-lib/nlp.txt
+artist.json.gz
+enwiki-20150112-400-r10-105752.txt.bz2
+hightemp.txt
+jawiki-country.json.gz
+neko.txt
+nlp.txt
+rt-polaritydata.tar.gz
+rt-polaritydata/
 *.rdb
 
 bootstrap-4.1.1-dist.zip
@@ -117,6 +120,3 @@ venv.bak/
 
 # mypy
 .mypy_cache/
-
-# private
-.DS_Store
