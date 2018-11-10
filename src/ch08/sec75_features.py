@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+def warn(*args, **kwargs):
+    pass
+import warnings
+warnings.warn = warn
+
 import pickle as pkl
 
 if __name__ == '__main__':

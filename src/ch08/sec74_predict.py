@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+def warn(*args, **kwargs):
+    pass
+import warnings
+warnings.warn = warn
+
 import pickle as pkl
 from sec72_features import extract_features
 from sklearn.feature_extraction.text import CountVectorizer

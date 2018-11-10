@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+def warn(*args, **kwargs):
+    pass
+import warnings
+warnings.warn = warn
+
 import sys
 import numpy as np
 import pickle as pkl

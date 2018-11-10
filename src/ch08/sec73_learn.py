@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+def warn(*args, **kwargs):
+    pass
+import warnings
+warnings.warn = warn
+
 from sklearn.linear_model import LogisticRegression
 import pickle as pkl
 
