@@ -7,6 +7,7 @@ hightemp.txt
 jawiki-country.json.gz
 neko.txt
 nlp.txt
+rt-polaritydata.README.1.0.txt
 rt-polaritydata.tar.gz
 rt-polaritydata/
 *.rdb
@@ -16,6 +17,8 @@ css/
 js/
 
 *.bin
+
+corpus.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
