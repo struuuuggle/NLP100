@@ -19,6 +19,7 @@ js/
 *.bin
 
 corpus.txt
+country.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
