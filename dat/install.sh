@@ -12,11 +12,12 @@ http://www.cs.cornell.edu/people/pabo/movie-review-data/rt-polaritydata.tar.gz
 
 for url in ${URL_LIST}
 do
-    wget $url
+    echo "Download ${url##*/} ..."
+    wget -q $url
 done
 
 tar -zxvf rt-polaritydata.tar.gz
 nkf -w --overwrite ./rt-polaritydata/rt-polarity.pos
 nkf -w --overwrite ./rt-polaritydata/rt-polarity.neg
 
-exit 0
+exit 0 && echo "Done."
