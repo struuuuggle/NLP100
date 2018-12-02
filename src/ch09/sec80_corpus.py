@@ -14,7 +14,7 @@ if __name__ == '__main__':
             words = line.decode().rstrip('\n').split(' ')
 
             # get rid of symbols from left and right side of token
-            words = [word.strip(r'.,!?;:()[]\'"') for word in words]
+            words = [word.strip('.,!?;:()[]\'"') for word in words]
 
             # for word in words:
             #     print(word)
